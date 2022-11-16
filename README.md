@@ -4,9 +4,9 @@
 
 ## 使用
 
-- 安装LaTex，参考如下教程（当然也可以参考其他）
+- 安装LaTeX，参考如下教程（当然也可以参考其他）
   - MacOS：https://zhuanlan.zhihu.com/p/102823687
-  - Windows：https://miktex.org/download
+  - Windows：https://blog.csdn.net/qq_41315788/article/details/122547495
 
 - 配合VSCode使用
 - 上述安装过程中需要在VSCode中安装`LaTeX Workshop`和`LaTeX Utilities`两个插件
