@@ -1,0 +1,216 @@
+% UTF-8 encoding
+\documentclass[UTF8]{ctexart}
+%====================================================
+% 颜色和自定义颜色
+\usepackage{xcolor}
+\definecolor{hyperref-green}{RGB}{0,150,0}
+\definecolor{hyperref-red}{RGB}{200,0,0}
+\definecolor{hyperref-blue}{RGB}{0,0,200}
+%====================================================
+
+%====================================================
+% 超链接
+\usepackage[
+pagebackref=false,  %这里关闭参考文献的反向超链接
+citecolor=black,
+linkcolor=black,
+urlcolor=hyperref-blue,
+menucolor=black,
+letterpaper=true,
+breaklinks=true,
+bookmarks=true,
+colorlinks
+]{hyperref}
+\usepackage{bibentry}
+%====================================================
+
+%====================================================
+%导入外部pdf
+\usepackage{pdfpages} % includepdf
+%====================================================
+
+%====================================================
+% 表格，woo
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+%====================================================
+
+%====================================================
+% 公式和数学标识，算法流程图
+\usepackage{amsmath}
+\usepackage{bm} %%某些矢量需要加粗字符，除mathbf外的另一种方式%By Kuber
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{listings} %插入代码
+\usepackage[ruled]{algorithm2e} %算法和伪代码
+\newcommand{\cmark}{\checkmark}%
+\newcommand{\xmark}{\ding{55}}%
+\usepackage{xcolor} % math color
+\usepackage{diagbox}
+\numberwithin{equation}{section} % 公式按章节编号
+\numberwithin{table}{section} % 公式按章节编号
+% 声明argmin和argmax运算符
+\newcommand{\argmin}{\mathop{\mathrm{argmin}}\limits}
+\newcommand{\argmax}{\mathop{\mathrm{argmax}}\limits}
+\usepackage{amsfonts}
+%====================================================
+
+%====================================================
+% 插入图表和图表描述
+\usepackage{graphicx, caption, subfigure, float}
+\DeclareCaptionFormat{myformat}{\fontsize{11}{8}\selectfont#1#2#3}  %这里修改图片标题字体大小
+\captionsetup{format=myformat}
+% \captionsetup{margin=2cm}
+\captionsetup{justification=centering}
+\usepackage{overpic}
+% 绘图
+\usepackage{pgfplots}
+%====================================================
+
+%====================================================
+% 其他格式，和样式
+% 将章节标号转为中文
+\usepackage{zhnumber}  
+%% geometry
+\usepackage{geometry}
+\geometry{left=3.17cm,right=3.17cm,top=3.0cm,bottom=3.0cm}  % 页边距
+% 页眉相关的设置
+\usepackage{fancyhdr}
+\fancyhf{}  % 清除默认页眉
+\pagestyle{fancy}
+\lhead{上海大学硕士学位论文}  % 添加右侧页眉
+\cfoot{\thepage}  % 添加页脚页码
+%% 设置章节格式
+\CTEXsetup[name={第, 章}]{section}
+\CTEXsetup[number={\chinese{section}}]{section}
+\CTEXsetup[format+={\zihao{-2}}]{section}   % 大章节字体: 小二
+\CTEXsetup[beforeskip={17pt}]{section} % 标题与上面文本的间距%By Kuber
+\CTEXsetup[afterskip={16.5pt}]{section}  % 标题与下面文本的间距%By Kuber
+\CTEXsetup[format+={\zihao{3}}]{subsection} % 小章节字体: 三号
+\CTEXsetup[beforeskip={13pt}]{subsection}%同上，间距可调
+\CTEXsetup[afterskip={13pt}]{subsection}%同上，间距可调
+\CTEXsetup[beforeskip={13pt}]{subsubsection}%同上，间距可调
+\CTEXsetup[afterskip={13pt}]{subsubsection}%同上，间距可调
+\CTEXsetup[format+={\zihao{3}}]{subsection} % 小章节字体: 三号
+\CTEXsetup[format+={\zihao{-4}}]{subsubsection}
+% 图表按章节编号
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+
+\usepackage[shortlabels]{enumitem}
+
+%====================================================
+
+%====================================================
+%常用的命令
+\newcommand{\red}[1]{{\textcolor{red}{#1}}}%
+%====================================================
+
+%====================================================
+% 开始正文
+\begin{document}
+\zihao{-4} %
+\linespread{1.6} \selectfont  % 调整全文为1.6倍line间距，非常接近word版本1.5行间距%By Kuber
+
+% 导入封面内容，注意这个地方的页码请根据你的实际情况设置，
+\includepdf[pages={1-7}]{cover.pdf}
+\pagenumbering{Roman} % 目录之前的内容(包括目录)页码使用罗马数字
+\setcounter{page}{7}  % LaTeX的起始页码
+
+% 由于目录(TOC: table of contents)也会被hyperref作为超链接，因此颜色会被设置为和图表超链接一样的红色，红色的目录不好看,这里单独把TOC的颜色设置为黑色。
+{\hypersetup{linkcolor=black}
+\tableofcontents}
+\pagebreak
+{\hypersetup{linkcolor=black}
+\renewcommand\listfigurename{图\;目\;录}
+\listoffigures}
+\pagebreak
+{\hypersetup{linkcolor=black}
+\renewcommand\listtablename{表\;目\;录}
+\listoftables}
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{第一章标题}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{arabic} % 正文开始，页码使用阿拉伯数字
+\setcounter{page}{1}
+
+\subsection{课题来源}
+这是一篇参考文献\cite{zheng2013personalized}。
+\subsection{国内外研究现状与问题分析}
+
+\subsubsection{xxx}
+
+\subsubsection{xxx}
+
+\subsection{本文章节安排}
+
+\newpage
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{第二章标题}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{第三章标题}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{第四章标题}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{第五章标题}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{第六章标题}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%% 参考文献
+\pagebreak
+\zihao{5} % 依据上大Word模板,参考文献字号为5号字体%By Kuber
+\bibliographystyle{ieeetr}
+\addcontentsline{toc}{section}{参考文献}
+\bibliography{shu-thesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\zihao{-4} % 字体调整回小四 %By Kuber
+\section*{作者在攻读硕士学位期间公开发表的论文}
+\addcontentsline{toc}{section}{作者在攻读硕士学位期间公开发表的论文}
+
+\hangafter 1
+\hangindent 1.5em
+\noindent
+\begin{enumerate}
+    \item xxx
+    \item xxx
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\section*{作者在攻读硕士学位期间所参与的项目}
+\addcontentsline{toc}{section}{作者在攻读硕士学位期间所参与的项目}
+
+\begin{enumerate}
+    \item xxx
+    \item xxx
+\end{enumerate}
+
+\pagebreak
+\section*{致谢}
+\addcontentsline{toc}{section}{致谢}
+
+\end{document}
