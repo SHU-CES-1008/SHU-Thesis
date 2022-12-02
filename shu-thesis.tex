@@ -7,7 +7,7 @@
 \definecolor{hyperref-red}{RGB}{200,0,0}
 \definecolor{hyperref-blue}{RGB}{0,0,200}
 %====================================================
-
+\usepackage{gbt7714}
 %====================================================
 % 超链接
 \usepackage[
@@ -177,9 +177,16 @@ colorlinks
 
 %% 参考文献
 \pagebreak
+\renewcommand{\bibname}{}
+\renewcommand{\bibsection}{}
+\CTEXsetup[format+={\heiti\zihao{-2}}]{section}   % 大章节字体: 小二
 \zihao{5} % 依据上大Word模板,参考文献字号为5号字体%By Kuber
-\bibliographystyle{ieeetr}
+\section*{参考文献}
 \addcontentsline{toc}{section}{参考文献}
+
+\bibliographystyle{gbt7714-numerical}
+\setlength{\labelsep}{2pt}
+\renewcommand\bibnumfmt[1]{\makebox[3em][l]{【#1】.}}
 \bibliography{shu-thesis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
