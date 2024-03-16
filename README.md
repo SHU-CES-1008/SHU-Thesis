@@ -1,6 +1,11 @@
+##  overleaf最新版本论文模板
+https://www.overleaf.com/latex/templates/shuthesis-thesis-template-for-shanghai-university/fqdhvtkggqzv
+
 ## 关于
 
-此宏包旨在建立一个简单易用的上海大学硕士学位论文 LaTeX 模板
+此宏包旨在建立一个简单易用的上海大学硕士学位论文 LaTeX 模板。
+此模板为旧版，但也能使用，盲审时需要手动隐去个人信息。
+overleaf中编译需要改变编译器为XeLaTeX。
 
 ## 使用
 
